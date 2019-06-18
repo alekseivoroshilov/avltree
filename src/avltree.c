@@ -13,6 +13,14 @@ struct Node
     int height;
 };
 
+void delete_tree(struct Node *tree) {
+  if(tree!=NULL) {
+    delete_tree(tree->left);
+    delete_tree(tree->right);
+    free(tree);
+  }
+}
+
 int contains(struct Node *root, int key){
     if (root == NULL)
         return 0;
